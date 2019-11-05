@@ -44,7 +44,7 @@ export default class Ball {
 
     // bottom of game
     if (this.position.y + this.size > this.gameHeight) {
-      this.game.lives--;
+      this.game.live--;
       this.reset();
     }
 

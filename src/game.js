@@ -3,7 +3,7 @@ import InputHandler from "/src/input.js";
 import Ball from "/src/ball.js";
 import Brick from "/src/brick.js";
 
-import { buildLevel, level1, level2 } from "/src/level.js"
+import { buildLevel, level1, level2, level3 } from "/src/level.js"
 
 const GAMESTATE = {
   PAUSED: 0,
@@ -25,7 +25,7 @@ export default class Game {
     this.bricks = [];
     this.live = 3;
 
-    this.levels = [level1, level2];
+    this.levels = [level1, level2, level3];
     this.currentLevel = 0;
 
     new InputHandler(this.paddle, this);
@@ -89,10 +89,11 @@ export default class Game {
       ctx.font = "30px Arial";
       ctx.fillStyle = "yellow";
       ctx.textAlign = "center";
-      ctx.fillText("Press spacbar to start", this.gameWidth / 2, this.gameHeight / 2);
+      ctx.fillText("按空格开始游戏", this.gameWidth / 2, this.gameHeight / 2);
     }
 
     if (this.gamestate === GAMESTATE.GAMEOVER) {
+      console.log("触发结束");
       ctx.rect(0, 0, this.gameWidth, this.gameHeight);
       ctx.fillStyle = "rgba(0,0,0,.8)";
       ctx.fill();
